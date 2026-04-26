@@ -4,10 +4,12 @@ to use Hugging Face model which is free. This step gets the key from .env file.
 """
 
 import os
-from dotenv import load_dotenv, dotenv_values
+from dotenv import dotenv_values
 
-load_dotenv()
-HGG_F_KEY = dotenv_values(".env").get("HUGGINGFACE_API_KEY")
+current_dir = os.path.dirname(os.path.abspath(__file__))
+env_path = os.path.join(current_dir, ".env")
+
+HGG_F_KEY = dotenv_values(dotenv_path=env_path).get("HUGGINGFACE_API_KEY")
 # print(HGG_F_KEY)
 
 
