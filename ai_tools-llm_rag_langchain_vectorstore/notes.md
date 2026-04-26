@@ -9,5 +9,8 @@
   - Bir üst örnekte boşluğa 'ülkedir" yanıtı gelirken, aşağıdaki aynı cümle kısmı önceki cümleden etkilenir
   - Demir ihtiyacımız var, Türkiye büyük bir ______. -> "ihracatçıdır" gelir. Çünkü, demir burada kilit rol oynar.
 
-- LangChain, LangGraph
+----
+
+- temperature parametresi llm'in özgünlük seviyesini belirler 0'a yaklaştıkça daha kesin cevaplar hazırlar.
+  - 1'e yaklaştıkça daha özgün creative cevaplar verir.
 - 
