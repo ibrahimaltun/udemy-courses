@@ -58,16 +58,17 @@ streaming = True
 if __name__ == "__main__":
     while True:
         try:
-            user_input = input("[You]: ")
+            user_input = input("\n[You]: ")
         except KeyboardInterrupt:
             print("\nThe system is closing...")
             break
 
         if streaming:
+            print("[AI]: ")
             for res in with_message_history.stream(
                 [HumanMessage(content=user_input)], config=config
             ):
-                print("[AI]: ", res.content)
+                print(res.content, end="")
 
         else:
             response = with_message_history.invoke(
