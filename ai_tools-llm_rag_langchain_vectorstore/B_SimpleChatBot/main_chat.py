@@ -53,6 +53,7 @@ chain = prompt | llm_model
 config = {"configurable": {"session_id": "abcde123"}}
 with_message_history = RunnableWithMessageHistory(chain, get_session_history)
 
+streaming = True
 
 if __name__ == "__main__":
     while True:
@@ -62,7 +63,14 @@ if __name__ == "__main__":
             print("\nThe system is closing...")
             break
 
-        response = with_message_history.invoke(
-            [HumanMessage(content=user_input)], config=config
-        )
-        print("[AI]: ", response.content)
+        if streaming:
+            for res in with_message_history.stream(
+                [HumanMessage(content=user_input)], config=config
+            ):
+                print("[AI]: ", res.content)
+
+        else:
+            response = with_message_history.invoke(
+                [HumanMessage(content=user_input)], config=config
+            )
+            print("[AI]: ", response.content)
