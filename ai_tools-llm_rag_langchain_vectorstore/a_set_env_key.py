@@ -1,3 +1,8 @@
+"""
+This code block set the environmental variable called HUGGINGFACEHUB_API_TOKEN
+to use Hugging Face model which is free. This step gets the key from .env file.
+"""
+
 import os
 from dotenv import load_dotenv, dotenv_values
 
