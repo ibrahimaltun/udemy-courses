@@ -1,18 +1,11 @@
 """ """
 
-import os
-
-from dotenv import load_dotenv, dotenv_values
-
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
+from a_set_env_key import set_env
 
-load_dotenv()
 
-HGG_F_KEY = dotenv_values(".env").get("HUGGINGFACE_API_KEY")
-# print(HGG_F_KEY)
-
-os.environ["HUGGINGFACEHUB_API_TOKEN"] = HGG_F_KEY
+set_env()
 
 # Ücretsiz açık kaynak model
 llm = HuggingFaceEndpoint(
