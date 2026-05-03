@@ -11,7 +11,9 @@ env_path = os.path.join(current_dir, ".env")
 
 HGG_F_KEY = dotenv_values(dotenv_path=env_path).get("HUGGINGFACE_API_KEY")
 # print(HGG_F_KEY)
+TAVILY_KEY = dotenv_values(dotenv_path=env_path).get("TAVILY_API_KEY")
 
 
 def set_env():
     os.environ["HUGGINGFACEHUB_API_TOKEN"] = HGG_F_KEY
+    os.environ["TAVILY_API_KEY"] = TAVILY_KEY
